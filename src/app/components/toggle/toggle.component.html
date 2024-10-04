@@ -1,0 +1,8 @@
+<span class="description-medium">
+    @if(checked) { Dark } @else { Light}
+    Mode
+</span>
+<div class="toggle">
+    <input type="checkbox" id="toggle" title="select dark mode" (change)="onChange.emit(checked)" [(ngModel)]="checked">
+    <label for="toggle" class="toggle-label"></label>
+</div>

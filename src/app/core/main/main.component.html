@@ -1,0 +1,8 @@
+<section [ngClass]="{'hidden-navbar': !navbarVisible()}">
+    <app-header></app-header>
+    <app-navbar></app-navbar>
+    <main>
+        <router-outlet />
+    </main>
+    <app-footer></app-footer>
+</section>

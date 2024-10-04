@@ -1,0 +1,38 @@
+<div class="logo">
+    <span class="display-medium">Chat.AI</span>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label class="label-large" for="email">Email:</label>
+        <div class="input-group">
+            <img class="icon icon-medium" src="../../assets/icons/mail.svg" alt="icon email" />
+            <input type="email" id="email" formControlName="email">
+        </div>
+        <div class="error-messages" *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+            <small *ngIf="email?.errors?.['required']">Email is required.</small>
+            <small *ngIf="email?.errors?.['email']">Invalid email</small>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label-large" for="password">Password:</label>
+        <div class="input-group">
+            <img class="icon icon-medium" src="../../assets/icons/key.svg" alt="icon key" />
+            <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
+            <button type="button" title="show or hide password" (click)="togglePasswordVisibility()">
+                @if(this.showPassword) {
+                <img class="icon-medium" src="../../assets/icons/eye-off.svg" alt="hide password" />
+                } @else {
+                <img class="icon-medium" src="../../assets/icons/eye.svg" alt="show password" />
+                }
+            </button>
+        </div>
+        <div class="error-messages" *ngIf="password?.invalid && (password?.touched || password?.dirty)">
+            <small *ngIf="password?.errors?.['required']">Password is required.</small>
+            <small *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+        </div>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+<a [routerLink]="['/forgot-password']">Forgot password?</a>

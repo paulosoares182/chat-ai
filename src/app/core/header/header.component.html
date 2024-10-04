@@ -1,0 +1,23 @@
+<button type="button" class="toggle-menu" (click)="toggleNavbar()" title="toggle menu">
+    <img class="icon-large" src="../../../assets/icons/menu.svg" alt="toggle menu" />
+</button>
+<input type="search" placeholder="Search..." />
+<div class="account">
+    <!-- <app-toggle (onChange)="toggleTheme()" [checked]="darkMode"></app-toggle> -->
+   
+    <div class="dropdown">
+        <button type="button" class="rounded" title="user account" (click)="toggleDropdownContent(dropdownContent)">
+            <img class="icon-medium" src="../../../assets/icons/user.svg" alt="user account" />
+        </button>
+        <div #dropdownContent class="dropdown-content">
+            <p class="label-medium">Hello, Paulo.</p>
+            <hr/>
+            <app-toggle (onChange)="toggleTheme()" [checked]="darkMode"></app-toggle>
+            <hr/>
+            <button type="button" title="delete conversation" (click)="logout()">
+                <img class="icon-small" src="../../../assets/icons/log-out.svg" alt="logout icon" />
+                Logout
+            </button>
+        </div>
+    </div>
+</div>

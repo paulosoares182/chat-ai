@@ -1,0 +1,85 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 70%;
+    margin: 0 auto;
+    gap: 8px;
+}
+
+.messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 12px;
+    gap: 18px;
+
+    .message {
+        span {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            padding: 0 8px;
+
+            strong {
+                color: var(--primary-color);
+            }
+        }
+
+        p {
+            padding: 8px;
+            display: inline-block;
+            width: auto;
+        }
+    }
+
+    .message.user {
+        text-align: right;
+
+        span {
+            justify-content: end;
+        }
+
+        p {
+            background-color: var(--message-user-bg-color);
+            border-radius: 12px;
+        }
+    }
+
+    .message.ai {
+        text-align: left;
+
+        .sources {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 8px;
+        }
+    }
+}
+
+.input-message {
+    position: relative;
+    display: inline-block;
+
+    textarea {
+        overflow: hidden;
+        resize: none;
+        padding: 10px;
+        max-height: 180px;
+    }
+
+    button {
+        position: absolute;
+        right: 10px;    
+        bottom: 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+            filter: invert(.5);
+        }
+    }
+}

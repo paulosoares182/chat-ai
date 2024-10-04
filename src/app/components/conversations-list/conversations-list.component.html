@@ -1,0 +1,28 @@
+<ul>
+    @for (conversation of conversations; track $index) {
+    <li>
+        <div class="details" (click)="goToChat(conversation.id)">
+            <div class="title">
+                <img class="icon-medium" src="../../../assets/icons/message-square.svg" alt="message icon" />
+                <p [title]="conversation.title">{{conversation.title}}</p>
+            </div>
+            <span class="description-small">{{conversation.createdAt}}</span>
+        </div>
+        <div class="dropdown">
+            <button type="button" title="open actions">
+                <img class="icon-medium" src="../../../assets/icons/more-vertical.svg" alt="edit icon" />
+            </button>
+            <div class="dropdown-content">
+                <button type="button" title="rename title">
+                    <img class="icon-small" src="../../../assets/icons/edit.svg" alt="edit icon" />
+                    rename
+                </button>
+                <button type="button" title="delete conversation">
+                    <img class="icon-small" src="../../../assets/icons/trash.svg" alt="trash icon" />
+                    delete
+                </button>
+            </div>
+        </div>
+    </li>
+    }
+</ul>

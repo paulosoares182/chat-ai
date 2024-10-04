@@ -1,0 +1,60 @@
+section {
+    display: grid;
+    grid-template-areas:
+        "navbar header"
+        "navbar main"
+        "navbar footer";
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    transition: grid-template-columns 0.3s ease;
+    background-color: var(--menu-bg-color);
+}
+
+section.hidden-navbar {
+    grid-template-columns: 0 1fr;
+
+    app-navbar {
+        transform: translateX(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+app-header {
+    grid-area: header;
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+app-navbar {
+    grid-area: navbar;
+    background-color: var(--menu-bg-color);
+
+    padding-bottom: 24px;
+}
+
+main {
+    grid-area: main;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+}
+
+app-footer {
+    grid-area: footer;
+    background-color: var(--bg-color);
+}
+
+@media (max-width: 768px) {
+    section {
+        grid-template-areas:
+            "header header"
+            "main main"
+            "footer footer";
+        grid-template-columns: 1fr;
+    }
+
+    app-navbar {
+        display: none;
+    }
+}

@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    opacity: 1;
+    transform: translateX(0);
+    padding: 0 8px 8px 8px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0;
+    color: var(--logo-color);
+
+    span {
+        font-weight: 400;
+    }
+
+    img {
+        width: 50px;
+    }
+}
+
+.new-chat {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px;
+    margin: 12px 0;
+}
