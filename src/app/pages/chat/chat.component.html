@@ -1,32 +1,21 @@
 <div class="messages">
-    <div class="message user">
-        <span class="description-medium"><strong>You</strong> - 1 min</span>
-        <p>Not a Lorem Ipsum whatsoever, but your Lorem Ipsum!</p>
-    </div>
-    <div class="message ai">
+    @for (message of highlightedMessages; track $index) {
+    <div class="message ai" [ngClass]="message.content">
         <span class="description-medium"><strong>IA</strong> - 1 min</span>
-        <p>With the online text generator you can process your personal Lorem Ipsum enriching it with html elements that
-            define its structure, with the possibility to insert external links, but not only.</p>
+        <p [innerHTML]="message.content"></p>
         <!-- <ul class="sources">
-            <li>
-                <a href=""> <img class="icon-small" src="../../assets/icons/external-link.svg" alt="open reference" />
-                    Reference 1.pdf
-                </a>
-            </li>
-        </ul> -->
+                <li>
+                    <a href=""> <img class="icon-small" src="../../assets/icons/external-link.svg" alt="open reference" />
+                        Reference 1.pdf
+                    </a>
+                </li>
+            </ul> -->
     </div>
-    <div class="message user">
-        <span class="description-medium"><strong>You</strong> - now</span>
-        <p>Not a Lorem Ipsum whatsoever, but your Lorem Ipsum!</p>
-    </div>
-    <div class="message ai">
-        <span class="description-medium"><strong>IA</strong> - now</span>
-        <p>With the online text generator you can process your personal Lorem Ipsum enriching it with html elements that
-            define its structure, with the possibility to insert external links, but not only.</p>
-    </div>
+    }
 </div>
 <div class="input-message">
-    <textarea placeholder="Message..." rows="1" (input)="adjustHeight($event)"></textarea>
+    <textarea placeholder="Message..." rows="1" (input)="adjustHeight($event)"
+        (keypress)="handleKeyPress($event)"></textarea>
     <button type="button" title="send message">
         <img src="../../assets/icons/send.svg" alt="icon send message" />
     </button>

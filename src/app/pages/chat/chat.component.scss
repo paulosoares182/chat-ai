@@ -83,3 +83,15 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    :host {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 520px) {
+    :host {
+        max-width: 90%;
+    }
+}

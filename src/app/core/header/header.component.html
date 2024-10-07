@@ -1,7 +1,7 @@
 <button type="button" class="toggle-menu" (click)="toggleNavbar()" title="toggle menu">
     <img class="icon-large" src="../../../assets/icons/menu.svg" alt="toggle menu" />
 </button>
-<input type="search" placeholder="Search..." />
+<input type="search" placeholder="Search..." (keypress)="handleKeyPress($event)" [(ngModel)]="searchText" />
 <div class="account">
     <!-- <app-toggle (onChange)="toggleTheme()" [checked]="darkMode"></app-toggle> -->
    

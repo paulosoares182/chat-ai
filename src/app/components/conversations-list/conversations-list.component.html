@@ -1,7 +1,7 @@
 <ul>
     @for (conversation of conversations; track $index) {
-    <li>
-        <div class="details" (click)="goToChat(conversation.id)">
+    <li (click)="goToChat(conversation.id)">
+        <div class="details" >
             <div class="title">
                 <img class="icon-medium" src="../../../assets/icons/message-square.svg" alt="message icon" />
                 <p [title]="conversation.title">{{conversation.title}}</p>
