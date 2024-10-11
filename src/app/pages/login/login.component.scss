@@ -20,15 +20,6 @@ form {
     gap: 14px;
     width: 30%;
 
-    .field {
-        display: flex;
-        flex-direction: column;
-
-        label {
-            padding-bottom: 8px;
-        }
-    }
-
     button[type='submit'] {
         background-color: var(--button-bg-color);
         color: var(--button-color);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarService } from '../services/navbar.service';
+import { SidebarService } from '../services/sidebar.service';
 import { ToggleComponent } from '../../components/toggle/toggle.component';
 import { ThemeService } from '../services/theme.service';
 import { Router } from '@angular/router';
@@ -19,15 +19,15 @@ export class HeaderComponent {
   searchText: string = "";
 
   constructor(
-    private navbarService: NavbarService,
+    private sidebarService: SidebarService,
     private themeService: ThemeService,
     private searchService: SearchService,
     private router: Router) {
     this.darkMode = this.themeService.getCurrentTheme() == 'dark';
   }
 
-  toggleNavbar(): void {
-    this.navbarService.toggleNavbar();
+  toggleSidebar(): void {
+    this.sidebarService.toggleSidebar();
   }
 
   toggleTheme(): void {

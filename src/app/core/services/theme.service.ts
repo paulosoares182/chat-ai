@@ -13,6 +13,8 @@ export class ThemeService {
     const savedTheme = localStorage.getItem(LS_THEME);
     if (savedTheme) {
       this.setTheme(savedTheme as Theme);
+    } else {
+      this.setTheme(this.currentTheme);
     }
   }
 

@@ -3,19 +3,19 @@
 </div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="field">
-        <label class="label-large" for="email">Email:</label>
+        <label class="label-large" for="email">Email</label>
         <div class="input-group">
             <img class="icon icon-medium" src="../../assets/icons/mail.svg" alt="icon email" />
             <input type="email" id="email" formControlName="email">
         </div>
-        <div class="error-messages" *ngIf="email?.invalid && (email?.touched || email?.dirty)">
-            <small *ngIf="email?.errors?.['required']">Email is required.</small>
-            <small *ngIf="email?.errors?.['email']">Invalid email</small>
+        <div class="error-messages" *ngIf="form.controls.email?.invalid && (form.controls.email?.touched || form.controls.email?.dirty)">
+            <small *ngIf="form.controls.email?.errors?.['required']">Email is required.</small>
+            <small *ngIf="form.controls.email?.errors?.['email']">Invalid email</small>
         </div>
     </div>
 
     <div class="field">
-        <label class="label-large" for="password">Password:</label>
+        <label class="label-large" for="password">Password</label>
         <div class="input-group">
             <img class="icon icon-medium" src="../../assets/icons/key.svg" alt="icon key" />
             <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
@@ -27,9 +27,9 @@
                 }
             </button>
         </div>
-        <div class="error-messages" *ngIf="password?.invalid && (password?.touched || password?.dirty)">
-            <small *ngIf="password?.errors?.['required']">Password is required.</small>
-            <small *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+        <div class="error-messages" *ngIf="form.controls.password?.invalid && (form.controls.password?.touched || form.controls.password?.dirty)">
+            <small *ngIf="form.controls.password?.errors?.['required']">Password is required.</small>
+            <small *ngIf="form.controls.password?.errors?.['minlength']">Password must be at least 6 characters long.</small>
         </div>
     </div>
 

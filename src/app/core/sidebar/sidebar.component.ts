@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ConversationsListComponent } from '../../components/conversations-list/conversations-list.component';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-sidebar',
   standalone: true,
   imports: [ConversationsListComponent],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss'
 })
-export class NavbarComponent {
+export class SidebarComponent {
   conversations: any[] = [];
 
   constructor() {
@@ -25,6 +25,7 @@ export class NavbarComponent {
       const createdAt = new Intl.DateTimeFormat('pt-BR', options).format(dateNow.setDate(dateNow.getDate() - i + 1));
       
       this.conversations.push({
+        link: `/chat/${i}`,
         id: `${i}`,
         title: `Conversation ${i}`,
         createdAt

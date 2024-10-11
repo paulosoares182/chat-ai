@@ -13,13 +13,28 @@
     --gray-800: #212121;
     --gray-900: #171717;
     --gray-950: #0d0d0d;
+    
     --primary-color: #7A1CAC;
-    --primary-color-1: #EBD3F8;
-    --primary-color-2: #AD49E1;
-    --primary-color-3: #892dbb;
-    --primary-color-4: #3f0d55;
-    --primary-color-5: #2E073F;
+    --primary-color-1: #8733B4;
+    --primary-color-2: #9549BD;
+    --primary-color-3: #A260C5;
+    --primary-color-4: #AF77CD;
+    --primary-color-5: #BD8ED6;
 
+    --secondary-color: #7A1CAC;
+    --secondary-color-1: #8733B4;
+    --secondary-color-2: #9549BD;
+    --secondary-color-3: #A260C5;
+    --secondary-color-4: #AF77CD;
+    --secondary-color-5: #BD8ED6;
+
+    --tertiary-color: #7A1CAC;
+    --tertiary-color-1: #8733B4;
+    --tertiary-color-2: #9549BD;
+    --tertiary-color-3: #A260C5;
+    --tertiary-color-4: #AF77CD;
+    --tertiary-color-5: #BD8ED6;
+    
     --logo-color: var(--black);
     --text-color: var(--gray-900);
     --text-color-2: var(--gray-950);
@@ -30,19 +45,21 @@
     --icon-border-color: var(--gray-750);
     --input-bg-color: var(--gray-200);
     --input-color: var(--text-color);
+    --input-border-color: var(--gray-700);
     --button-color: var(--gray-200);
-    --button-bg-color: var(--primary-color-5);
-    --button-bg-color-hover: var(--primary-color-4);
+    --button-bg-color: var(--primary-color-2);
+    --button-bg-color-hover: var(--primary-color-3);
     --menu-bg-color: var(--primary-color);
     --message-user-bg-color: var(--gray-300);
     --conversations-list-color: var(--gray-200);
     --conversations-list-bg-color: var(--primary-color-2);
-    --conversations-list-bg-color-hover: var(--primary-color-4);
-    --dropdown-bg-color: var(--primary-color);
-    --dropdown-color: var(--gray-200);
-    --scrollbar-track-color: var(--primary-color-1);
-    --scrollbar-thumb-color: var(--primary-color-2);
-    --scrollbar-thumb-color-hover: var(--primary-color-5);
+    --conversations-list-bg-color-hover: var(--primary-color-3);
+    --conversations-list-active-color: var(--conversations-list-color);
+    --dropdown-bg-color: var(--white);
+    --dropdown-color: var(--text-color);
+    --scrollbar-track-color: var(--primary-color-2);
+    --scrollbar-thumb-color: var(--primary-color-3);
+    --scrollbar-thumb-color-hover: var(--primary-color-4);
 }
 
 [data-theme='dark'] {
@@ -57,6 +74,7 @@
     --icon-border-color: var(--gray-200);
     --input-bg-color: var(--border-color);
     --input-color: var(--text-color);
+    --input-border-color: var(--gray-700);
     --button-bg-color: var(--gray-950);
     --button-bg-color-hover: var(--black);
     --menu-bg-color: var(--gray-900);
@@ -64,6 +82,7 @@
     --conversations-list-color: var(--text-color);
     --conversations-list-bg-color: var(--bg-color);
     --conversations-list-bg-color-hover: var(--gray-950);
+    --conversations-list-active-color: var(--primary-color);
     --dropdown-bg-color: var(--bg-color);
     --dropdown-color: var(--primary-color);
     --scrollbar-track-color: var(--gray-750);
@@ -134,7 +153,7 @@ input,
 textarea {
     background: var(--input-bg-color);
     color: var(--input-color);
-    border: none;
+    border: 1px solid var(--input-border-color);
     border-radius: 6px;
     font: inherit;
     outline: none;
@@ -177,6 +196,17 @@ img.icon-small {
         filter: invert(0.9);
     }
     
+}
+
+form {
+    .field {
+        display: flex;
+        flex-direction: column;
+    
+        label {
+            padding-bottom: 8px;
+        }
+    }
 }
 
 .error-messages {

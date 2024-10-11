@@ -1,6 +1,6 @@
 <ul>
     @for (conversation of conversations; track $index) {
-    <li (click)="goToChat(conversation.id)">
+    <li (click)="goToChat(conversation.id)" [ngClass]="{'active': activeUrl() === conversation.link}">
         <div class="details" >
             <div class="title">
                 <img class="icon-medium" src="../../../assets/icons/message-square.svg" alt="message icon" />

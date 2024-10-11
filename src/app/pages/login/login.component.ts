@@ -1,11 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-export interface ILogin {
-  email: string;
-  password: string;
-}
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -14,21 +11,15 @@ export interface ILogin {
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  form: FormGroup;
+  private formBuilder = inject(FormBuilder);
+  private router = inject(Router);
 
-  get email() { return this.form.get('email'); }
-  get password() { return this.form.get('password'); }
+  protected form = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]]
+  });
 
   showPassword: boolean = false;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router) {
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
-    });
-  }
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -36,7 +27,6 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const data: ILogin = this.form.value;
       this.router.navigate(['/chat'])
     } else {
       console.log('Form is not valid', this.form);

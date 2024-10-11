@@ -1,6 +1,6 @@
 <div class="messages">
     @for (message of highlightedMessages; track $index) {
-    <div class="message ai" [ngClass]="message.content">
+    <div class="message" [ngClass]="message.role">
         <span class="description-medium"><strong>IA</strong> - 1 min</span>
         <p [innerHTML]="message.content"></p>
         <!-- <ul class="sources">

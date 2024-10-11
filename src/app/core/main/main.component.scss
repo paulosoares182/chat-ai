@@ -1,9 +1,9 @@
 section {
     display: grid;
     grid-template-areas:
-        "navbar header"
-        "navbar main"
-        "navbar footer";
+        "sidebar header"
+        "sidebar main"
+        "sidebar footer";
     grid-template-columns: 240px 1fr;
     grid-template-rows: auto 1fr auto;
     height: 100vh;
@@ -11,10 +11,10 @@ section {
     background-color: var(--menu-bg-color);
 }
 
-section.hidden-navbar {
+section.hidden-sidebar {
     grid-template-columns: 0 1fr;
 
-    app-navbar {
+    app-sidebar {
         transform: translateX(-100%);
         opacity: 0;
         pointer-events: none;
@@ -27,8 +27,8 @@ app-header {
     border-bottom: 1px solid var(--border-color);
 }
 
-app-navbar {
-    grid-area: navbar;
+app-sidebar {
+    grid-area: sidebar;
     background-color: var(--menu-bg-color);
 
     padding-bottom: 24px;
@@ -54,7 +54,7 @@ app-footer {
         grid-template-columns: 1fr;
     }
 
-    app-navbar {
+    app-sidebar {
         display: none;
     }
 }
